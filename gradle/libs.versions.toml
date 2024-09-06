@@ -16,9 +16,12 @@ retrofit = "2.10.0"
 ktx = "2.4.0"
 kapt="1.9.0"
 hilt="2.51.1"
-corutines = "1.3.9"
+mockk = "1.13.5"
+corutinesTest = "1.6.4"
 
 [libraries]
+corutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "corutinesTest" }
+mockk-test = { module = "io.mockk:mockk", version.ref = "mockk" }
 hilt-android = { module = "com.google.dagger:hilt-android",name="hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler",name="hilt-compiler", version.ref = "hilt" }
 livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "ktx" }
