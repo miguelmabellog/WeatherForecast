@@ -17,11 +17,12 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: DetailViewModel by viewModels()
+    var cityName: String = "city Name"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            val cityName = it.getString(ARG_CITY_NAME)
+             cityName = it.getString(ARG_CITY_NAME).toString()
             viewModel.getWeather(cityName ?: "")
         }
     }
@@ -44,7 +45,7 @@ class DetailFragment : Fragment() {
 
     private fun setupToolbar() {
         val toolbar = binding.toolbar
-        toolbar.title = "Weather Details"
+        toolbar.title = cityName
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
