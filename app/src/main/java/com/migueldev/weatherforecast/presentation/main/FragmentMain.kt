@@ -2,6 +2,7 @@ package com.migueldev.weatherforecast.presentation.main
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.icu.text.Transliterator
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -62,6 +63,7 @@ class FragmentMain : Fragment(), OnMapReadyCallback {
             getCityAndCountry(markerLocation) { city, country ->
                 if (city != null && country != null) {
                     val locationName = "$city,$country"
+
                     val detailFragment = DetailFragment.newInstance(locationName)
 
                     findNavController().navigate(
@@ -117,5 +119,7 @@ class FragmentMain : Fragment(), OnMapReadyCallback {
             callback(null, null)
         }
     }
+
+
 
 }
